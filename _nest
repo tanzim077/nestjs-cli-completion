@@ -69,8 +69,7 @@ __nest_subcommand() {
 
 _nest_generate_schematics() {
     schematics=(
-    {app,application}:application
-    {ng-app,angular-app}:angular-app
+    {application,application}:application
     {cl,class}:class
     {config,configuration}:configuration
     {co,controller}:controller
@@ -85,7 +84,9 @@ _nest_generate_schematics() {
     {pi,pipe}:pipe
     {pr,provider}:provider
     {r,resolver}:resolver
+    {res,resource}:resource
     {s,service}:service
+    {app,sub-app}:sub-app
     {lib,library}:library
     )
     _describe -t nest-commands "schematics $words[2]" schematics && ret=0
@@ -97,10 +98,10 @@ _nest() {
     typeset -A __nest_schematics_map
 
     __nest_schematics_map=(
-        app application
         application application
-        ng-app angular-app
-        angular-app angular-app
+        application application
+        sub-app app
+        app app
         cl class
         class class
         config configuration
@@ -128,6 +129,8 @@ _nest() {
         pr provider
         provider provider
         r resolver
+        res resource
+        resource resource
         resolver resolver
         s service
         service service
